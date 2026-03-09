@@ -9,7 +9,7 @@ export function Testimonials({ limit = 3, className }: { limit?: number; classNa
       {items.map(t => (
         <div key={t.id} className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
           <div className="flex text-yellow-400 mb-3">
-            {Array.from({ length: t.rating }).map((_, i) => (
+            {Array.from({ length: t.rating || 5 }).map((_, i) => (
               <Star key={i} className="w-4 h-4 fill-current" />
             ))}
           </div>
