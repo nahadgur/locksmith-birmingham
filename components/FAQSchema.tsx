@@ -1,34 +1,23 @@
 // components/FAQSchema.tsx
-// Injects FAQPage JSON-LD into the page <head> via a script tag.
-// Works in both server and client components.
+// FAQ schema is now injected at the server component level for each page.
+// This component is kept for backwards compatibility.
 
-interface FAQ {
-  question: string;
-  answer: string;
-}
+interface FAQItem { question: string; answer: string }
 
-interface FAQSchemaProps {
-  faqs: FAQ[];
-}
+export function FAQSchema({ faqs }: { faqs: FAQItem[] }) {
+  if (!faqs || faqs.length === 0) return null;
 
-export function FAQSchema({ faqs }: FAQSchemaProps) {
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
     mainEntity: faqs.map(faq => ({
       '@type': 'Question',
       name: faq.question,
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: faq.answer,
-      },
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer },
     })),
   };
 
   return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-    />
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
   );
 }

@@ -49,14 +49,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
   const organizationSchema = {
     '@context': 'https://schema.org',
-    '@type': 'Organization',
+    '@type': 'Locksmith',
     name: siteConfig.name,
     url: siteConfig.url,
     logo: `${siteConfig.url}/android-chrome-512x512.png`,
     description: siteConfig.description,
     areaServed: {
       '@type': 'AdministrativeArea',
-      name: siteConfig.name.split(' ').pop() || '',
+      name: 'Birmingham',
       containedInPlace: { '@type': 'Country', name: 'United Kingdom' },
     },
     contactPoint: {

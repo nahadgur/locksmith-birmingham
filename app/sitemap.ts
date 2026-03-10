@@ -2,6 +2,7 @@ import type { MetadataRoute } from 'next';
 import { services } from '@/data/services';
 import { LOCATIONS, toSlug } from '@/data/locations';
 import { siteConfig } from '@/data/site';
+import { guides } from '@/data/guides';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = siteConfig.url;
@@ -11,6 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/`, lastModified: new Date(), changeFrequency: 'weekly', priority: 1.0 },
     { url: `${base}/services/`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
     { url: `${base}/location/`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
+    { url: `${base}/guides/`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
   ];
 
   const servicePages: MetadataRoute.Sitemap = services.map(s => ({
@@ -39,5 +41,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
   }
 
-  return [...staticPages, ...servicePages, ...locationPages, ...serviceLocationPages];
+  // Query network pages (guides)
+  const guidePages: MetadataRoute.Sitemap = guides.map(g => ({
+    url: `${base}/guides/${g.slug}/`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.7,
+  }));
+
+  return [...staticPages, ...servicePages, ...locationPages, ...serviceLocationPages, ...guidePages];
 }
