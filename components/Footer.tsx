@@ -51,13 +51,16 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Info */}
+          {/* Guides */}
           <div>
-            <h4 className="text-white font-semibold mb-4">Service Area</h4>
-            <ul className="space-y-3 text-sm">
-              <li className="flex items-center gap-2 text-gray-400">
-                <MapPin className="w-4 h-4 text-brand-500" /> {siteConfig.name}
-              </li>
+            <h4 className="text-white font-semibold mb-4">Guides</h4>
+            <ul className="space-y-2 text-sm">
+              <li><Link href="/guides/bs3621-locks-explained/" className="hover:text-brand-400 transition-colors">BS3621 Locks Explained</Link></li>
+              <li><Link href="/guides/anti-snap-cylinder-locks/" className="hover:text-brand-400 transition-colors">Anti-Snap Cylinders</Link></li>
+              <li><Link href="/guides/insurance-approved-locks/" className="hover:text-brand-400 transition-colors">Insurance-Approved Locks</Link></li>
+              <li><Link href="/guides/lock-snapping-prevention/" className="hover:text-brand-400 transition-colors">Lock Snapping Prevention</Link></li>
+              <li><Link href="/guides/multipoint-locking-systems/" className="hover:text-brand-400 transition-colors">Multipoint Lock Systems</Link></li>
+              <li><Link href="/guides/" className="hover:text-brand-400 transition-colors text-brand-400">View all guides &rarr;</Link></li>
             </ul>
           </div>
         </div>
@@ -69,6 +72,7 @@ export function Footer() {
             <Link href="/sitemap.xml" className="hover:text-gray-300">Sitemap</Link>
             <Link href="/services/" className="hover:text-gray-300">Services</Link>
             <Link href="/location/" className="hover:text-gray-300">Locations</Link>
+            <Link href="/guides/" className="hover:text-gray-300">Guides</Link>
           </div>
         </div>
       </div>

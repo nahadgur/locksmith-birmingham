@@ -73,7 +73,7 @@ export function Header({ onOpenModal }: HeaderProps) {
 
               <Link href="/location/" className="px-3 py-2 text-gray-600 hover:text-brand-600 font-medium transition-colors rounded-lg hover:bg-brand-50">Locations</Link>
 
-
+              <Link href="/guides/" className="px-3 py-2 text-gray-600 hover:text-brand-600 font-medium transition-colors rounded-lg hover:bg-brand-50">Guides</Link>
               <button onClick={onOpenModal} className="ml-3 btn-primary text-sm !py-2.5 !px-5 rounded-full">
                 Get Free Quotes
               </button>
@@ -98,6 +98,7 @@ export function Header({ onOpenModal }: HeaderProps) {
                 ))}
               </div>
               <Link href="/location/" className="block px-3 py-3 text-base font-medium text-gray-700 hover:bg-gray-50 rounded-lg">Locations</Link>
+              <Link href="/guides/" className="block px-3 py-3 text-base font-medium text-gray-700 hover:bg-gray-50 rounded-lg">Guides</Link>
 
               <div className="pt-4 px-3">
                 <button onClick={() => { onOpenModal?.(); setMobileOpen(false); }} className="block w-full btn-primary text-center">Get Free Quotes</button>
